@@ -79,9 +79,10 @@ require_once("connect.php");
 			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'">';
 				
 			echo '</div>';
-			echo '<p>'.$geode->post_text.'</p><p><a href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a></p>'
+			
+			echo '<p>'.$geode->post_text.'</p><p><a href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a></p>
 
-			'<div class="clearfix"></div>';
+			<div class="clearfix"></div>';
 				
 				
 				
