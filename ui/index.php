@@ -31,28 +31,11 @@ require("header.php");
                 <div class="widget-content">
                   <div class="padd">
 
-					<?php foreach ($users as $user){ ?>
-					
-						 <div class="user">
-						  <div class="user-pic">
-							<!-- User pic -->
-							<a href="#"><img src="<?php echo $geode[$geodeauthor]; ?>" alt="" /></a>
-						  </div>
-
-						  <div class="user-details">
-							<h5><?php echo $geode[$author] ?></h5>
-							<p><?php echo $geode[$comment] ?></p>
-						  </div>
-						  <div class="clearfix"></div>
-						</div>
+					<?php foreach ($geodes as $geode){
 						
-						<?php if (count($geode['children')){
-							// If this has children recursively loop through children
-						} ?>
+							outputGeode($geode);
 						
-						<hr />
-					
-					<?php } ?>
+					} ?>
 					
 
                   </div>
