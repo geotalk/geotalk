@@ -62,7 +62,7 @@ require_once("connect.php");
 		
 			<div id="geode-'.$geode->CloseLocationID.'" class="user">
 			
-			<div class="user-pic"><abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'</abbr><a href="#">
+			<div class="user-pic"><abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'</br><a href="#">
 					<img src="'.$geode->profile_pic.'" alt="" />
 				</a>
 			</div>
