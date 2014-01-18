@@ -1,26 +1,39 @@
 <?php
 require("header.php");
 ?>
+<div class="content">
+
+
 <?php
  if(isset($_REQUEST['submit'])){
 	
-	$query = "CALL insertGeode(".",".")";
+	// One is anonymous 
+	$userID = isset($_SESSION['userid'])? $_SESSION['userid'] : 1;
+	$comment = $_REQUEST['description'];
+	$score = $_REQUEST['score'];
+	$privacy = $_REQUEST['privacy'];
+	$replyto = isset($_REQUEST['replyto'])?$_REQUEST['replyto'] : "null" ;
 	
-	/*
-	IN userID INT // $_SESSION['userid']
-	,IN lat DECIMAL(10,7)	$_SESSION['lat']
-	,IN lng DECIMAL(10,7)	$_SESSION['lat']
-	,IN replyID INT			// $_REQUEST['replyto'];
-	,IN postTime DATETIME		date( 'Y-m-d H:i:s');
-	,IN postText VARCHAR(500)	// description
-	,IN postRating INT 			// 1 -5 
-	,IN postPicture VARCHAR(200) // Link to picture
-	,IN postPrivacy INT 		 // not decided on
-	,IN postTags VARCHAR(200)	// Not yet
-	*/
+	$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$comment.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
+	
+	var_dump($query);
+	
+	$result = $link->query($query);//mysql_query($query);
+	
+	if (!$result) {
+		echo 'Could not run query: ' . mysql_error();
+		exit;
+	}
+	
+	echo "Successfuly Submitted";
 	
 	
 
+//	,IN postTags VARCHAR(200)	// Not yet
+
+	
+	
+/*
 $uploaddir = './';//<----This is all I changed
 $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
@@ -34,19 +47,10 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 
 print "</pre>";
 	
-	$result = mysql_query($query);
-	
-	if (!$result) {
-		echo 'Could not run query: ' . mysql_error();
-		exit;
-	}
-	
-	
+	*/
 }
 
 ?>
-<div class="content">
-<form enctype="multipart/form-data" action="" method="POST">
 
   	
 
@@ -76,12 +80,12 @@ print "</pre>";
                   <div class="padd">
                     <div class="form profile">
 					<!-- Edit profile form (not working)-->
-					<form class="form-horizontal">
+					<form enctype="multipart/form-data" action="" method="POST" class="form-horizontal">
 						<!-- Country -->
                         <div class="control-group">
                             <label class="control-label">Rating</label>
                             <div class="controls">                               
-                                <select>
+                                <select id="score" name="score">
                                     <option value=""> --- Please Select --- </option>
                                     <option value="5">5</option>
                                     <option value="4">4</option>
@@ -89,16 +93,29 @@ print "</pre>";
                                     <option value="2">2</option>
                                     <option value="1">1</option>
                                 </select>  
+								
+								
+                            </div>
+							
+							<label class="control-label">Privacy</label>
+                            <div class="controls">                               
+                                <select id="privacy" name="privacy">
+                                    <option value=""> --- Please Select --- </option>
+                                    <option value="1">Public</option>
+                                    <option value="0">Private</option>
+                                </select>  
+								
+								
                             </div>
                         </div>    
 						<!-- Description -->
 						<div class="control-group">
 							<label class="control-label" for="description">Description</label>
 							<div class="controls">
-								<textarea class="input-large" id="Description"></textarea>
+								<textarea class="input-large" id="Description" name="description"></textarea>
 							</div>
 						</div>
-                    <input type="file" name="file" id="file">
+                    <!-- <input type="file" name="file" id="file"> -->
 					<br />
 					<br />
 
@@ -106,7 +123,7 @@ print "</pre>";
 					
 						
 					
-						<button type="submit" class="btn">Submit</button>
+						<button type="submit" name="submit" class="btn">Submit</button>
 					</form>
 					</div>
                     <div class="clearfix"></div>
@@ -135,7 +152,7 @@ print "</pre>";
 
    <!-- Mainbar ends -->	    	
    <div class="clearfix"></div>
-</form>
+
 </div>
 <!-- Content ends -->
 

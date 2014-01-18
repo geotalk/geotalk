@@ -45,7 +45,7 @@ require("header.php");
 					
 					$query = "CALL selectGeodesClose(".$lat.",".$lng.")";
 					
-					$result = mysql_query($query);
+					$result = $link->query($query);
 					
 					if (!$result) {
 						echo 'Could not run query: ' . mysql_error();
@@ -53,9 +53,13 @@ require("header.php");
 					}
 
 					
-					while ($row = mysql_fetch_assoc($result)) {
-						outputGeode($row);
-					}
+					while ($geodes[] = $result->fetch_object());
+					array_pop($geodes);
+						foreach($geodes as $geode) :
+						outputGeode($geode);
+						endforeach;
+					
+						
 					?>
 					
 

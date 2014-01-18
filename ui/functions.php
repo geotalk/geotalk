@@ -1,7 +1,7 @@
 <?php
 
 // Defines
-
+require_once("connect.php");
 	define("userimage", "profile_pic");
 	define("description", "");
 	define("geodeauthorimg", "profile_pic");
@@ -14,6 +14,33 @@
 	define("id", "CloseLocationID");
 	
 	
+	<?php heatmapdata(); ?>
+	function heatmapdata(){
+	
+	global $link;
+		
+		$sql = "SELECT latitude, longitude
+        FROM   location";
+
+		$result = $link->query($sql);
+
+		if (!$result) {
+			echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+			exit;
+		}
+
+		
+		$output="";
+		while ($item = mysqli_fetch_object($result)) {
+			$output .= "new google.maps.LatLng(".$item->latitude.", ".$item->longitude."),";
+		}
+		
+		mysqli_free_result($result);
+			
+		rtrim($output, ",");
+	
+		echo "[".substr($output, 0, -1). "]";
+	}
 	
 	// Functions 
 	
@@ -28,39 +55,60 @@
 
 	//
 	function outputGeode($geode){
+	global $link;
 		//var_dump($geode);
 		
 		echo '
 		
-			<div id="geode-'.$geode[id].'" class="user">
+			<div id="geode-'.$geode->CloseLocationID.'" class="user">
 			
 			<div class="user-pic">'.
-			$geode[post_time].'
+			$geode->post_time.'
 				<a href="#">
-					<img src="'.$geode[geodeauthorimg].'" alt="" />
+					<img src="'.$geode->profile_pic.'" alt="" />
 				</a>
 			</div>
 			
 			<div class="user-details">
-				<h5>'.$geode[geodeauthor].'</h5>
-				<p>'.$geode[geodecomment].'</p>';
-			
-			if (isset($geode[imagesrc])) echo '<img class="submitted-pic" src="'.$geode[imagesrc].'">';
+				<h5>'.$geode->username.'</h5>
+				<p>'.$geode->post_text.'</p><p><a href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a></p>';
+				
+			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'">';
 				
 			echo '</div>
 			
 			<div class="clearfix"></div>';
+				
+				
+				
+				
+			$childlink = mysqli_connect('localhost', 'root', '', 'hack');
+			if (!$childlink) {
+				die('Not connected : ' . mysql_error());
+			}
+
+			$query2 = "CALL selectChildren(".$geode->CloseLocationID.");";
+			$result2 = $childlink->query($query2);
+			
+			if (!$result2) {
+						echo 'Could not run query: ' . mysql_error();
+						
+			}
+			else{
+
+					
+					while ($children[] = $result2->fetch_object());
+					array_pop($children);
+						foreach($children as $child) {
+							outputGeode($child);
+						}
+			
+			}
 		
-		
-		
-		//$children = explode(",", $geode[$childrenlist]);
-		// need to get children geode arrays not ID's
-		// If it has children
-		//if (count($children)){
-		//	foreach ($children as $child){
-		//		outputGeode($child);
-		//	}
-		//} 
-		echo '</div><hr />';
+			
+		echo '</div>';
 	}
+	
+					
+					
 ?>

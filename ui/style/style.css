@@ -13,7 +13,6 @@ body .container{
 	padding-left: 1.5%;
 	padding-right: 1.5%;
 }
-
 h1,h2,h3,h4,h5,h6{
 	padding: 2px 0px;
 	margin: 2px 0px;
@@ -1620,4 +1619,11 @@ footer .copy{
 	.mainbar{
 		margin-left: 200px;
 	}
+}
+
+
+.user .user{
+	padding-left:15px;
+	border-left: 1px solid #ccc;
+	background-color:rgba(128, 128, 128, 0.05);
 }
