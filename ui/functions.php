@@ -74,14 +74,14 @@ require_once("connect.php");
 					<h5>'.$geode->username.'</h5>
 				</div>
 			
-			<div class="user-details">
-				<p>'.$geode->post_text.'</p><p><a href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a></p>';
+			<div class="user-details">';
 				
 			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'">';
 				
-			echo '</div>
-			
-			<div class="clearfix"></div>';
+			echo '</div>';
+			echo '<p>'.$geode->post_text.'</p><p><a href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a></p>'
+
+			'<div class="clearfix"></div>';
 				
 				
 				
