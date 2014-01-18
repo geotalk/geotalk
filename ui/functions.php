@@ -75,7 +75,7 @@ require_once("connect.php");
 				</div>
 			
 			<div class="user-details">
-				<p>'.$geode->post_text.'</p>
+				<p>'.$geode->post_text.'</p>';
 				
 			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'">';
 				
