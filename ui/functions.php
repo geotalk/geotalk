@@ -14,7 +14,7 @@ require_once("connect.php");
 	define("id", "CloseLocationID");
 	
 	
-	<?php heatmapdata(); ?>
+	
 	function heatmapdata(){
 	
 	global $link;
