@@ -78,9 +78,9 @@ session_start()
             </li> -->
 
             <!-- Message button with number of latest messages count-->
-            <li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="heatmap.php" data-toggle="dropdown">
-                <i class="icon-envelope-alt"></i> Heatmap <span class="badge badge-important">6</span> 
+            <li>
+              <a class="btn" href="heatmap.php">
+                <i class="glyphicon glyphicon-map-marker"></i> Heatmap  
               </a>
             </li>
 
