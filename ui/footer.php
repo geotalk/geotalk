@@ -8,7 +8,7 @@
     <div class="row-fluid">
       <div class="span12">
             <!-- Copyright info -->
-            <p class="copy">Copyright &copy; 2012 | <a href="#">Geotalk</a> </p>
+            <p class="copy">Copyright &copy; 2014 | <a href="#">Geotalk</a> </p>
       </div>
     </div>
   </div>

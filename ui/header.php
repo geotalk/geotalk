@@ -1,7 +1,8 @@
 <?php
 // header.php
 
-
+require("connect.php");
+require("functions.php");
 ?>
 
 <!DOCTYPE html>

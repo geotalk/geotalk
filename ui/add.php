@@ -1,8 +1,52 @@
 <?php
-
 require("header.php");
 ?>
+<?php
+ if(isset($_REQUEST['submit'])){
+	
+	$query = "CALL insertGeode(".",".")";
+	
+	/*
+	IN userID INT // $_SESSION['userid']
+	,IN lat DECIMAL(10,7)	$_SESSION['lat']
+	,IN lng DECIMAL(10,7)	$_SESSION['lat']
+	,IN replyID INT			// $_REQUEST['replyto'];
+	,IN postTime DATETIME		date( 'Y-m-d H:i:s');
+	,IN postText VARCHAR(500)	// description
+	,IN postRating INT 			// 1 -5 
+	,IN postPicture VARCHAR(200) // Link to picture
+	,IN postPrivacy INT 		 // not decided on
+	,IN postTags VARCHAR(200)	// Not yet
+	*/
+	
+	
+
+$uploaddir = './';//<----This is all I changed
+$uploadfile = $uploaddir . basename($_FILES['file']['name']);
+
+echo '<pre>';
+if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+    echo "File is valid, and was successfully uploaded.\n";
+} else {
+    echo "Possible file upload attack!\n";
+}
+
+
+print "</pre>";
+	
+	$result = mysql_query($query);
+	
+	if (!$result) {
+		echo 'Could not run query: ' . mysql_error();
+		exit;
+	}
+	
+	
+}
+
+?>
 <div class="content">
+<form enctype="multipart/form-data" action="" method="POST">
 
   	
 
@@ -49,15 +93,19 @@ require("header.php");
                         </div>    
 						<!-- Description -->
 						<div class="control-group">
-							<label class="control-label" for="discription">Description</label>
+							<label class="control-label" for="description">Description</label>
 							<div class="controls">
 								<textarea class="input-large" id="Description"></textarea>
 							</div>
 						</div>
-                    <button class="btn"><i class="icon-paper-clip"></i> Add Picture</button>
+                    <input type="file" name="file" id="file">
 					<br />
 					<br />
 
+					
+					
+						
+					
 						<button type="submit" class="btn">Submit</button>
 					</form>
 					</div>
@@ -87,7 +135,7 @@ require("header.php");
 
    <!-- Mainbar ends -->	    	
    <div class="clearfix"></div>
-
+</form>
 </div>
 <!-- Content ends -->
 
