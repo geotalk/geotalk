@@ -71,10 +71,10 @@ require_once("connect.php");
 					<a href="#">
 						<img src="'.$geode->profile_pic.'" alt="" />
 					</a>
+					<h5>'.$geode->username.'</h5>
 				</div>
 			
 			<div class="user-details">
-				<h5>'.$geode->username.'</h5>
 				<p>'.$geode->post_text.'</p><p><a href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a></p>';
 				
 			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'">';
