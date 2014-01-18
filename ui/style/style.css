@@ -1494,26 +1494,12 @@ footer .copy{
 		padding-left: 2.5%;
 		padding-right: 2.5%;
 	}	
-	header,footer{
+	header,footer,.content{
 		margin-left: -20px;
 		margin-right: -20px;
 	}
 
-	.content{
-		/*margin-left: -20px;
-		margin-right: -20px;*/
-		margin-top: -150%;
-		-webkit-transition: all .8s ease-in-out;
-	    -moz-transition: all .8s ease-in-out;
-	    -o-transition: all .8s ease-in-out;
-	    transition: all .8s ease-in-out;
-	}
-	.content:target{
-	    margin-top: 0%;
-	  /*  margin-left: -20px;
-		margin-right: -20px;*/
-	    
-	}
+	
 	header,.mainbar .matter,footer{
 		padding-left: 20px;
 		padding-right: 20px;
@@ -1623,7 +1609,12 @@ footer .copy{
 
 
 .user .user{
-	padding-left:15px;
+	padding-left:2%;
 	border-left: 1px solid #ccc;
 	background-color:rgba(128, 128, 128, 0.05);
+}
+
+.user .user .user .user .user{
+	padding-left:0;
+	background-color:rgb(224,224,224);
 }
