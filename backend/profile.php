@@ -1,0 +1,1 @@
+<img src="<?php echo $user[$picture] ?> "></img>
