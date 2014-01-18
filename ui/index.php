@@ -31,141 +31,30 @@ require("header.php");
                 <div class="widget-content">
                   <div class="padd">
 
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
+					<?php foreach ($users as $user){ ?>
+					
+						 <div class="user">
+						  <div class="user-pic">
+							<!-- User pic -->
+							<a href="#"><img src="<?php echo $geode[$geodeauthor]; ?>" alt="" /></a>
+						  </div>
 
-                      <div class="user-details">
-                        <h5>Ashok, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
+						  <div class="user-details">
+							<h5><?php echo $geode[$author] ?></h5>
+							<p><?php echo $geode[$comment] ?></p>
+						  </div>
+						  <div class="clearfix"></div>
+						</div>
+						
+						<?php if (count($geode['children')){
+							// If this has children recursively loop through children
+						} ?>
+						
+						<hr />
+					
+					<?php } ?>
+					
 
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Ravi Kumar, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Bala Rajan, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Bala Rajan, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>       
-
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Bala Rajan, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>       
-
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Bala Rajan, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>       
-
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Bala Rajan, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>       
-
-                    <hr />
-
-                    <div class="user">
-                      <div class="user-pic">
-                        <!-- User pic -->
-                        <a href="#"><img src="img/user-big.jpg" alt="" /></a>
-                      </div>
-
-                      <div class="user-details">
-                        <h5>Bala Rajan, B.Tech, MBA</h5>
-                        <p> Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.</p>
-                     
-                        
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>                                               
-
-                    
                   </div>
                   <div class="widget-foot">
                     <!-- Footer goes here -->
