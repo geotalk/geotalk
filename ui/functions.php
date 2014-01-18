@@ -88,7 +88,7 @@ require_once("connect.php");
 				
 				
 				
-			$childlink = mysqli_connect('localhost', 'root', '', 'hack');
+			$childlink = mysqli_connect('localhost', 'root', 'root', 'hack');
 			if (!$childlink) {
 				die('Not connected : ' . mysql_error());
 			}
