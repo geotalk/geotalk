@@ -50,8 +50,6 @@ if ($user) {
   $loginUrl = $facebook->getLoginUrl();
 }
 
-// This call will always work since we are fetching public data.
-$naitik = $facebook->api('/naitik');
 
 ?>
 <!doctype html>
@@ -95,13 +93,13 @@ $naitik = $facebook->api('/naitik');
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
 
       <h3>Your User Object (/me)</h3>
+	  
+	  <?php echo $user_profile['name'] ?>
       <pre><?php print_r($user_profile); ?></pre>
     <?php else: ?>
       <strong><em>You are not Connected.</em></strong>
     <?php endif ?>
 
-    <h3>Public profile of Naitik</h3>
-    <img src="https://graph.facebook.com/naitik/picture">
-    <?php echo $naitik['name']; ?>
+  
   </body>
 </html>
