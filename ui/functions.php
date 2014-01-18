@@ -60,9 +60,13 @@ require_once("connect.php");
 		
 		echo '
 		
+			<div style="float:left">
+				<div class="user-pic"><abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'
+			</div>
+		
 			<div id="geode-'.$geode->CloseLocationID.'" class="user">
 			
-			<div class="user-pic"><abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'</br><a href="#">
+				</abbr><a href="#">
 					<img src="'.$geode->profile_pic.'" alt="" />
 				</a>
 			</div>
