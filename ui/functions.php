@@ -65,10 +65,10 @@ require_once("connect.php");
 				
 				<div class="user-pic">
 					<div style="float:right;">
-						<abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'
+						<abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'</abbr>
 					</div>
 			
-					</abbr><a href="#">
+					<a href="#">
 						<img src="'.$geode->profile_pic.'" alt="" />
 					</a>
 				</div>
