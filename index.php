@@ -52,10 +52,11 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
                 <div class="widget-content">
                   <div class="padd">
 
+					
 					<?php
 					
-					$lat = $_GET['lat'];
-					$lng = $_GET['lng'];
+					$lat = $_REQUEST['lat'];
+					$lng = $_REQUEST['lng'];
 					
 					$_SESSION['lat'] = $lat;
 					$_SESSION['lng'] = $lng;
@@ -128,9 +129,16 @@ function getLocation()
   }
 function showPosition(position)
   {
-  
-  window.location.href = "index.php?lat="+position.coords.latitude+"&lng="+position.coords.longitude;
-  
+
+  var url = '/';
+	var form = $('<form style="display:none "action="' + url + '" method="post">' +
+  '<input type="text" name="lat" value="' + position.coords.latitude + '" />' +
+   '<input type="text" name="lng" value="' + position.coords.longitude + '" />' +
+  '</form>');
+jQuery('body').append(form);
+jQuery(form).submit();
+
+
   }
   
   getLocation()
