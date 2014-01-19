@@ -128,6 +128,12 @@ print "</pre>";
 						</div>
                     <!-- <input type="file" name="file" id="file"> -->
 					<br />
+					<div class="control-group">
+							<label class="control-label" for="description">Description</label>
+							<div class="controls">
+								<input type="file" class="input-large" id="File">
+							</div>
+					</div>
 					<br />
 
 					
