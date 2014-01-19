@@ -4,7 +4,7 @@
 require_once("connect.php");
 require("functions.php");
 
-session_start()
+
 
 ?>
 
@@ -20,6 +20,11 @@ session_start()
   <meta name="keywords" content="">
   <meta name="author" content="">
 
+
+  <link rel="apple-touch-icon" href="touch-icon-iphone.png" /> 
+<link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png" /> 
+<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
 
   <!-- Stylesheets -->
   <link href="style/bootstrap.css" rel="stylesheet">
@@ -55,11 +60,14 @@ session_start()
   <![endif]-->
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="img/favicon/favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body class="<?php echo preg_replace("/[^a-z]+/i", "", pathinfo ($_SERVER["SCRIPT_NAME"], PATHINFO_FILENAME)) ?>">
+<div style="display:none" id="holder">
 
+
+</div>
 
 <!-- Header starts -->
   <header>

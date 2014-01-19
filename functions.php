@@ -2,6 +2,7 @@
 
 // Defines
 require_once("connect.php");
+session_start();
 
 define("appID", '1399808763601662');
 
@@ -19,6 +20,20 @@ define("appID", '1399808763601662');
 	function getFacebookID(){
 		 if (isset($_SESSION["fb_".appID."_user_id"])) return $_SESSION["fb_".appID."_user_id"];
 		 else return "";
+	}
+	
+	function getUserID(){
+		if ($fbID = getFacebookID()){
+			$query = "SELECT `user_id` FROM  `users` WHERE  `user_facebook` = ".getFacebookID().";";
+
+			$result = $link->query($query);
+
+			while ($item = mysqli_fetch_object($result)) {
+				$FBuserID = $item->user_id;
+			}	
+		}
+		
+		return isset($FBuserID)? $FBuserID : 1;
 	}
 	
 	function heatmapdata(){
@@ -62,37 +77,41 @@ define("appID", '1399808763601662');
 	//
 	function outputGeode($geode){
 	global $link;
-		//var_dump($geode);
-		
-		echo '
+	?>
+	
 			
-			<div id="geode-'.$geode->CloseLocationID.'" class="user">
+			<div id="geode-<?php echo $geode->CloseLocationID ?>" geode="<?php echo $geode->CloseLocationID ?>" class="user">
 				
 				
 				<div style="float:right; margin:1%;">
-					<abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'</abbr>
+					<abbr class="timeago" title="<?php echo date ( 'c', strtotime($geode->post_time )) ?>"> <?php echo strtotime($geode->post_time ); ?></abbr>
 				</div>
 				<div class="user-pic">
 					<a href="#">
-						<img src="'.$geode->profile_pic.'" alt="" />
+						<img src=" <?php echo $geode->profile_pic ?>" alt="" />
 					</a>
-					<h5>'.$geode->username.'</h5>
+					<h5><?php echo $geode->username ?></h5>
 				</div>
 
 			<div class="user-details">
-				<p style="padding:1%;">'.$geode->post_text.'</p>';
+				<p style="padding:1%;"><?php echo $geode->post_text ?></p>
 				
-			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'"><br />';
-				
-			echo '';
-			
-			echo '<a class="btn" style="margin:1%;" href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a>
+				<?php if (isset($geode->url)){ ?>
+					<img class="submitted-pic" src="<?php echo $geode->url ?>">
+					<br />
+				<?php } ?>
 			</div>
+			
+			<form class="reply" action="ajaxadd.php">
+				<input type="hidden" name = "parent" value = "<?php echo $geode->CloseLocationID ?>" >
+				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
+				<button type="submit" class="btn btn-default">Reply</button>
+			</form>
 
-			<div class="clearfix"></div>';
+			<div class="clearfix"></div>
 				
 				
-				
+				<?php 
 				
 			$childlink = mysqli_connect('localhost', 'root', 'root', 'hack');
 			if (!$childlink) {
@@ -111,7 +130,7 @@ define("appID", '1399808763601662');
 					
 					while ($children[] = $result2->fetch_object());
 					array_pop($children);
-					$children = array_reverse($children);
+				
 					foreach($children as $child) {
 						outputGeode($child);
 					}

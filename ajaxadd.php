@@ -1,175 +1,84 @@
 <?php
-require("header.php");
-?>
-<div class="content">
 
+	require("functions.php");
 
-<?php
- if(isset($_REQUEST['submit'])){
+		$userID = getUserID();
+		
+		$replytext = isset($_REQUEST['replytext'])? $_REQUEST['replytext'] : "null";
 	
-	// One is anonymous 
-	
-	if ($fbID = getFacebookID()){
-		$query = "SELECT `user_id` FROM  `users` WHERE  `user_facebook` = ".getFacebookID().";";
+		$score = isset($_REQUEST['score'])? $_REQUEST['score'] : "null";
+		$privacy = isset($_REQUEST['privacy'])? $_REQUEST['privacy'] : "null";
+		
+		$replyto = isset($_REQUEST['replyto'])?$_REQUEST['replyto'] : "null" ;
 
+		$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$replytext.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
+
+		$result = $link->query($query);//mysql_query($query);
+
+		if (!$result) {
+			echo 'Could not run query: ' . mysql_error();
+			exit;
+		}
+		
+		
+		$postID = $link->insert_id; //**BUG Need to get the proper ID for nested replies
+		
+		$query = 'SELECT `username`, `profile_pic` FROM  `users` WHERE  `user_id` ='.$userID;
 		$result = $link->query($query);
 		
 		while ($item = mysqli_fetch_object($result)) {
-			$FBuserID = $item->user_id;
-		}	
-	}
-	
-	$userID = isset($FBuserID)? $FBuserID : 1;
-	$comment = $_REQUEST['description'];
-	$score = $_REQUEST['score'];
-	$privacy = $_REQUEST['privacy'];
-	$replyto = isset($_REQUEST['replyto'])?$_REQUEST['replyto'] : "null" ;
-	
-	$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$comment.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
-	
-	var_dump($query);
-	
-	$result = $link->query($query);//mysql_query($query);
-	
-	if (!$result) {
-		echo 'Could not run query: ' . mysql_error();
-		exit;
-	}
-	
-	echo "Successfuly Submitted";
-	
-	
+			$username = $item->username;
+			$profile_pic = $item->profile_pic;
+		}
 
-//	,IN postTags VARCHAR(200)	// Not yet
+		?>
+		<div class="user">
+			<div style="float:right; margin:1%;">
+					<abbr class="timeago" title="<?php echo date ( 'c') ?>"> <?php echo time(); ?></abbr>
+				</div>
+			<div class="user-pic">
+				<a href="#">
+					<img src="<?php echo $profile_pic ?>" alt="" />
+				</a>
+				<h5>
+					<?php echo $username?>
+				</h5>
+			</div>
+			<div class="user-details">
+				<p style="padding:1%;">
+					<?php echo $replytext ?>
+				</p>
+			</div>
+			<form class="reply" action="ajaxadd.php">
+				<input type="hidden" name = "parent" value = "<?php $postID ?>" >
+				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
+				<button type="submit" class="btn btn-default">Reply</button>
+			</form>
 
-	
-	
-/*
-$uploaddir = './';//<----This is all I changed
-$uploadfile = $uploaddir . basename($_FILES['file']['name']);
-
-echo '<pre>';
-if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
-} else {
-    echo "Possible file upload attack!\n";
-}
-
-
-print "</pre>";
-	
-	*/
-}
-
-?>
-
-  	
-
-  	<!-- Main bar -->
-  	<div class="mainbar">
-
-	    <!-- Matter -->
-
-	    <div class="matter">
-        <div class="container-fluid">
-
-            <div class="row-fluid">
-
-
-
-              <!-- User widget -->
-              <div class="widget">
-                <div class="widget-head">
-                  <div class="pull-left">Add Geode</div>
-                  <div class="widget-icons pull-right">
-                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
-                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
-                  </div>  
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget-content">
-                  <div class="padd">
-                    <div class="form profile">
-					<!-- Edit profile form (not working)-->
-					<form enctype="multipart/form-data" action="" method="POST" class="form-horizontal">
-						<!-- Country -->
-                        <div class="control-group">
-                            <label class="control-label">Rating</label>
-                            <div class="controls">                               
-                                <select id="score" name="score">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="5">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                </select>  
-								
-								
-                            </div>
-							<br >
-							<label class="control-label">Privacy</label>
-                            <div class="controls">                               
-                                <select id="privacy" name="privacy">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="1">Public</option>
-                                    <option value="0">Private</option>
-                                </select>  
-								
-								
-                            </div>
-                        </div>    
-						<!-- Description -->
-						<div class="control-group">
-							<label class="control-label" for="description">Description</label>
-							<div class="controls">
-								<textarea class="input-large" id="Description" name="description"></textarea>
-							</div>
-						</div>
-                    <!-- <input type="file" name="file" id="file"> -->
-					<br />
-					<br />
-
-					
-					
-						
-					
-						<button type="submit" name="submit" class="btn">Submit</button>
-					</form>
-					</div>
-                    <div class="clearfix"></div>
-                          
-
-                    <hr />
-
-                                                               
-
-                    
-                  </div>
-                  <div class="widget-foot">
-                    <!-- Footer goes here -->
-                  </div>
-                </div>
-              </div>  
-
-
-
-        </div>
-		  </div>
-
-		<!-- Matter ends -->
-
-    </div>
-
-   <!-- Mainbar ends -->	    	
-   <div class="clearfix"></div>
-
-</div>
-<!-- Content ends -->
-
-
+			<div class="clearfix"></div>
+		</div>
 <?php
-require("footer.php");
+
+
+		//	,IN postTags VARCHAR(200)	// Not yet
+
+
+
+		/*
+		$uploaddir = './';//<----This is all I changed
+		$uploadfile = $uploaddir . basename($_FILES['file']['name']);
+
+		echo '<pre>';
+		if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+		echo "File is valid, and was successfully uploaded.\n";
+		} else {
+		echo "Possible file upload attack!\n";
+		}
+
+
+		print "</pre>";
+
+		*/
 
 
 ?>
