@@ -22,9 +22,9 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
 
           			<!-- Top Button widget -->
           			<div class="widget">
-                    <div class="widget-head">
+                    <div class="widget-head" >
                         <div class="pull-left">Create New Geode</div>
-                          <div class="widget-icons pull-right">
+                          <div class="widget-icons pull-right" data-toggle='collapse'>
                               <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
                               <a href="#" class="wclose"><i class="icon-remove"></i></a>
                           </div>  
