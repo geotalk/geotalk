@@ -3,7 +3,7 @@
 
 require("header.php");
 
-if( isset ( $_REQUEST['lat'] && $_REQUEST['lng'] ) ){
+if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
 ?>
 
 
