@@ -78,13 +78,13 @@ define("appID", '1399808763601662');
 					</a>
 					<h5>'.$geode->username.'</h5>
 				</div>
-			<div>
+
 			<div class="user-details">
 				<p>'.$geode->post_text.'</p>';
 				
 			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'">';
 				
-			echo '</div>';
+			echo ;
 			
 			echo '
 				<a class="btn" style="margin=2px; " href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a>
