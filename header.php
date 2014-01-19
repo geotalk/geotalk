@@ -80,7 +80,7 @@ session_start()
 
             <!-- Message button with number of latest messages count-->
             <li>
-              <a class="btn" href="index.php">
+              <a class="btn" href="/">
                 <i class="fa fa-home"> </i> <span> Home  </span>
               </a>
             </li>
