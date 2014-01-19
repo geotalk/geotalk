@@ -4,8 +4,6 @@
 require_once("connect.php");
 require("functions.php");
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -32,14 +30,12 @@ require("functions.php");
   <link rel="stylesheet" href="style/font-awesome.css"> 
   <!-- jQuery UI -->
   <link rel="stylesheet" href="style/jquery-ui.css"> 
-  <!-- Calendar -->
-  <link rel="stylesheet" href="style/fullcalendar.css">
+  
   <!-- prettyPhoto -->
   <link rel="stylesheet" href="style/prettyPhoto.css">   
   <!-- Star rating -->
   <link rel="stylesheet" href="style/rateit.css">
-  <!-- Date picker -->
-  <link rel="stylesheet" href="style/bootstrap-datetimepicker.min.css">
+  
   <!-- CLEditor -->
   <link rel="stylesheet" href="style/jquery.cleditor.css"> 
   <!-- Uniform -->
@@ -74,44 +70,36 @@ require("functions.php");
     <div class="container-fluid">
       <div class="row-fluid">
 
-        <div class="span4">
-
+        <div>
           <!-- Buttons -->
-          <ul class="nav nav-pills">
+          <ul class="nav nav-pills pull-right">
 
-            <!-- Comment button with number of latest comments count -->
-            <!-- <li class="dropdown dropdown-big">
+            <li class="dropdown dropdown-big">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="icon-comments"></i> Geodes <span   class="badge badge-info">6</span> 
+                <i class="fa fa-bars" style="margin-right: 1px;"></i> <span> Menu </span>   
               </a>
-            </li> -->
-
-            <!-- Message button with number of latest messages count-->
-            <li>
-              <a class="btn" href="/">
-                <i class="fa fa-home"> </i> <span> Home  </span>
-              </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="btn" href="/">
+                      <i class="fa fa-home"> </i> <span> Home  </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="btn" href="heatmap.php">
+                      <i class="fa fa-map-marker"></i> <span> Heatmap </span>   
+                    </a>
+                  </li>                                   
+                </ul>
             </li>
-            <li>
-              <a class="btn" href="heatmap.php">
-                <i class="fa fa-map-marker"></i> <span> Heatmap </span>   
-              </a>
-            </li>
-
-            <!-- Members button with number of latest members count -->
-            <!--<li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="icon-user"></i> Users <span   class="badge badge-success">6</span> 
-              </a>
-            </li>--> 
 
           </ul>
 
+          <div class="pull-left">
+            <p> Logo </p>
+          </div>
+
+          <div class="clearfix"></div>
         </div>
-
-        
-
-        
 
       </div>
     </div>

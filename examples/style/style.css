@@ -353,7 +353,7 @@ text-decoration:none;
 /* Dropdown menu */
 
 .dropdown-big .dropdown-menu{
-	min-width: 230px;
+	max-width: 5%;
 	padding:8px 10px;
 }
 
@@ -361,11 +361,11 @@ text-decoration:none;
 	margin: 1px 0px;
 	padding: 1px 0px;
 	font-size: 11px;
-	line-height: 16px;
+	/*line-height: 16px;*/
 }
 
 .dropdown-big .dropdown-menu a, .dropdown-big .dropdown-menu a:hover{
-	line-height: 16px;
+	/*line-height: 16px;*/
 	font-size: 12px;
 	background:transparent;
 	padding: 0px;
