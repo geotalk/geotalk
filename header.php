@@ -91,12 +91,12 @@ require("functions.php");
                   </li> 
                   <li>
                     <a class="btn" href="wordcloud.php">
-                      <i class="fa fa-home"> </i> <span> Word Cloud  </span>
+                      <i class="fa fa-cloud"> </i> <span> Word Cloud  </span>
                     </a>
                   </li>
                   <li>
                     <a class="btn" href="profile.php">
-                      <i class="fa fa-home"> </i> <span> Me  </span>
+                      <i class="fa fa-user"> </i> <span> Me  </span>
                     </a>
                   </li>                                  
                 </ul>
