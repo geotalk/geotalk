@@ -108,7 +108,7 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
 					
 					
 					
-					$query = "CALL selectGeodesClose(".$lat.",".$lng.")";
+					$query = "CALL selectGeodesClose(".$_SESSION['lat'].",".$_SESSION['lng'].",". 0.05 .")";
 					
 					$result = $link->query($query);
 					

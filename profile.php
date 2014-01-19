@@ -63,6 +63,33 @@ require("header.php");
 
 		<!-- Matter ends -->
 
+				<?php
+			$query = "CALL selectGeodesClose(".$_SESSION['lat'].",".$_SESSION['lng'].",". 0.05 .")";
+			
+					
+					$result = $link->query($query);
+					
+					if (!$result) {
+						echo 'Could not run query: ' . mysql_error();
+						exit;
+					}
+
+					
+					while ($geodes[] = $result->fetch_object());
+					array_pop($geodes);
+					
+					$geodes = array_reverse ($geodes);
+					
+						foreach($geodes as $geode) :
+							outputGeode($geode);
+						endforeach;
+					
+						
+						?>
+		
+		
+		
+		
     </div>
 
    <!-- Mainbar ends -->	    	
