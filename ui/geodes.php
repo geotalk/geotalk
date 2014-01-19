@@ -33,9 +33,7 @@ require("header.php");
 					<a class="btn" href="add.php">Create</a>
 					
                   </div>
-				  <div class="widget-foot">
-                    <!-- Footer goes here -->
-                  </div>
+
 				</div>
 			</div>
 			</div>
