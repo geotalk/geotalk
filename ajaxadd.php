@@ -9,19 +9,29 @@
 		$score = isset($_REQUEST['score'])? $_REQUEST['score'] : "null";
 		$privacy = isset($_REQUEST['privacy'])? $_REQUEST['privacy'] : "null";
 		
-		$replyto = isset($_REQUEST['replyto'])?$_REQUEST['replyto'] : "null" ;
-
+		$replyto = isset($_REQUEST['replyto']) ? $_REQUEST['replyto'] : "null" ;
+		
+		$date = date( 'Y-m-d H:i:s');
 		$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$replytext.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
 
-		$result = $link->query($query);//mysql_query($query);
+		
+		
+		$result = $link->query($query);
 
 		if (!$result) {
-			echo 'Could not run query: ' . mysql_error();
+			echo 'Could not run query: ' . mysqli_error($link);
 			exit;
 		}
 		
 		
-		$postID = $link->insert_id; //**BUG Need to get the proper ID for nested replies
+		$query = 'SELECT `geode_id` FROM `geode` WHERE `post_time` = "'.$date.'" AND `post_text` = "'.$replytext.'";';
+		
+		$result = $link->query($query);
+		
+		while ($item = mysqli_fetch_object($result)) {
+			$postID = $item->geode_id;
+		}
+	
 		
 		$query = 'SELECT `username`, `profile_pic` FROM  `users` WHERE  `user_id` ='.$userID;
 		$result = $link->query($query);
@@ -50,7 +60,7 @@
 				</p>
 			</div>
 			<form class="reply" action="ajaxadd.php">
-				<input type="hidden" name = "parent" value = "<?php $postID ?>" >
+				<input type="hidden" name = "parent" value = "<?php echo $postID ?>" >
 				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
 				<button type="submit" class="btn btn-default">Reply</button>
 			</form>
