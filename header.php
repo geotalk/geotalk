@@ -88,7 +88,17 @@ require("functions.php");
                     <a class="btn" href="heatmap.php">
                       <i class="fa fa-map-marker"></i> <span> Heatmap </span>   
                     </a>
-                  </li>                                   
+                  </li> 
+                  <li>
+                    <a class="btn" href="wordcloud.php">
+                      <i class="fa fa-home"> </i> <span> Word Cloud  </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="btn" href="profile.php">
+                      <i class="fa fa-home"> </i> <span> Me  </span>
+                    </a>
+                  </li>                                  
                 </ul>
             </li>
 
