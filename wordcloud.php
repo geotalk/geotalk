@@ -30,7 +30,7 @@ require("header.php");
       var fill = d3.scale.category20();
       var wordcloudData = <?php echo wordclouddata() ?>;
       console.log(wordcloudData);
-      
+
       d3.layout.cloud().size([300, 400])
           .words(wordcloudData.map(function(d) {
             return {text: d, size: 10 + Math.random() * 90};

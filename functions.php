@@ -69,6 +69,7 @@ define("appID", '1399808763601662');
 		$sql = "CALL selectHashtagsMap(1000,".$_SESSION['lat'].",".$_SESSION['lng'].");";
 
 		$result = $link->query($sql);
+		
 
 		if (!$result) {
 			echo "Could not successfully run query ($sql) from DB: " . mysql_error();

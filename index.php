@@ -30,7 +30,7 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
                           </div>  
                           <div class="clearfix"></div>
                     </div>
-                    <div class="widget-content">
+                    <div class="widget-content" id="form">
                         <div class="padd">
           				        <div class="form profile">
                     					<!-- Edit profile form (not working)-->
@@ -191,7 +191,8 @@ jQuery(form).submit();
 
   }
   
-  getLocation()
+  getLocation();
+
 </script>
 
 <?php
