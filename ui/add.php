@@ -8,7 +8,11 @@ require("header.php");
  if(isset($_REQUEST['submit'])){
 	
 	// One is anonymous 
-	$userID = isset($_SESSION['userid'])? $_SESSION['userid'] : 1;
+	
+
+	
+	
+	$userID = isset(getFacebookID())? getFacebookID() : 1;
 	$comment = $_REQUEST['description'];
 	$score = $_REQUEST['score'];
 	$privacy = $_REQUEST['privacy'];

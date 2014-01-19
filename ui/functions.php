@@ -2,6 +2,9 @@
 
 // Defines
 require_once("connect.php");
+
+define("appID", '1399808763601662');
+
 	define("userimage", "profile_pic");
 	define("description", "");
 	define("geodeauthorimg", "profile_pic");
@@ -14,6 +17,9 @@ require_once("connect.php");
 	define("id", "CloseLocationID");
 	
 	
+	function getFacebookID(){
+		return $_SESSION["fb_".appID."_user_id"];
+	}
 	
 	function heatmapdata(){
 	
