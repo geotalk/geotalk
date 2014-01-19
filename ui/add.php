@@ -10,9 +10,19 @@ require("header.php");
 	// One is anonymous 
 	
 
+	$query = "SELECT `user_id` 
+FROM  `users` 
+WHERE  `user_facebook` = ".getFacebookID().";";
+
+
+		$result = $link->query($query);
+		
+		while ($item = mysqli_fetch_object($result)) {
+			$FBuserID = $item->user_id;
+		}		
+					
 	
-	
-	$userID = isset(getFacebookID())? getFacebookID() : 1;
+	$userID = isset($FBuserID)? $FBuserID : 1;
 	$comment = $_REQUEST['description'];
 	$score = $_REQUEST['score'];
 	$privacy = $_REQUEST['privacy'];

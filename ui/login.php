@@ -62,8 +62,37 @@ if ($user) {
 <?php } 
 else {
 
-	echo "Already Logged In";
+	// Check and or create
+	
+	$query = 'SELECT * 
+FROM  `users` 
+WHERE  `user_facebook` = "'.getFacebookID().'";';
 
+$result = $link -> query($query);
+
+if (!mysqli_num_rows($result)) { // Create User 
+
+	$query = "INSERT INTO users (`user_facebook`,`profile_pic`,`username`)
+	VALUES (\"".getFacebookID()."\",\"https://graph.facebook.com/".$user."/picture\", \"".addslashes($user_profile['name']) ."\");";
+
+	$link -> query($query);
+	
+	echo "Facebook Linked!";
+}
+else{
+
+					
+					
+
+	//$user[id] //=> 100003820940245
+    //$user[name] //=> Evan d'Entremont
+	
+	
+	
+	
+
+	echo "Already Logged In";
+}
  }?>
 
 

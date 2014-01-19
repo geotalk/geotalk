@@ -14,7 +14,6 @@ define("appID", '1399808763601662');
 	define("imagesrc", "url");
 	define("post_time", "post_time");
 	define("rank", "rank");
-	define("id", "CloseLocationID");
 	
 	
 	function getFacebookID(){

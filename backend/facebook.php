@@ -89,6 +89,7 @@ if ($user) {
     <pre><?php print_r($_SESSION); ?></pre>
 
     <?php if ($user): ?>
+	<?php echo $user[0]; ?>
       <h3>You</h3>
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
 
