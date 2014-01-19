@@ -1,175 +1,61 @@
 <?php
-require("header.php");
-?>
-<div class="content">
+
+	require("functions.php");
 
 
-<?php
- if(isset($_REQUEST['submit'])){
-	
-	// One is anonymous 
-	
-	if ($fbID = getFacebookID()){
-		$query = "SELECT `user_id` FROM  `users` WHERE  `user_facebook` = ".getFacebookID().";";
+		if ($fbID = getFacebookID()){
+			$query = "SELECT `user_id` FROM  `users` WHERE  `user_facebook` = ".getFacebookID().";";
 
-		$result = $link->query($query);
+			$result = $link->query($query);
+
+			while ($item = mysqli_fetch_object($result)) {
+				$FBuserID = $item->user_id;
+			}	
+		}
+
+		$userID = isset($FBuserID)? $FBuserID : 1;
 		
-		while ($item = mysqli_fetch_object($result)) {
-			$FBuserID = $item->user_id;
-		}	
-	}
+		$replytext = isset($_REQUEST['replytext'])? $_REQUEST['replytext'] : "null";
 	
-	$userID = isset($FBuserID)? $FBuserID : 1;
-	$comment = $_REQUEST['description'];
-	$score = $_REQUEST['score'];
-	$privacy = $_REQUEST['privacy'];
-	$replyto = isset($_REQUEST['replyto'])?$_REQUEST['replyto'] : "null" ;
-	
-	$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$comment.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
-	
-	var_dump($query);
-	
-	$result = $link->query($query);//mysql_query($query);
-	
-	if (!$result) {
-		echo 'Could not run query: ' . mysql_error();
+		$score = isset($_REQUEST['score'])? $_REQUEST['score'] : "null";
+		$privacy = isset($_REQUEST['privacy'])? $_REQUEST['privacy'] : "null";
+		
+		$replyto = isset($_REQUEST['replyto'])?$_REQUEST['replyto'] : "null" ;
+
+		$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$replytext.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
+
+		var_dump($query);
+
+		$result = $link->query($query);//mysql_query($query);
+
+		if (!$result) {
+			echo 'Could not run query: ' . mysql_error();
 		exit;
-	}
-	
-	echo "Successfuly Submitted";
-	
-	
+		}
 
-//	,IN postTags VARCHAR(200)	// Not yet
-
-	
-	
-/*
-$uploaddir = './';//<----This is all I changed
-$uploadfile = $uploaddir . basename($_FILES['file']['name']);
-
-echo '<pre>';
-if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
-} else {
-    echo "Possible file upload attack!\n";
-}
-
-
-print "</pre>";
-	
-	*/
-}
-
-?>
-
-  	
-
-  	<!-- Main bar -->
-  	<div class="mainbar">
-
-	    <!-- Matter -->
-
-	    <div class="matter">
-        <div class="container-fluid">
-
-            <div class="row-fluid">
+		echo "Successfuly Submitted";
 
 
 
-              <!-- User widget -->
-              <div class="widget">
-                <div class="widget-head">
-                  <div class="pull-left">Add Geode</div>
-                  <div class="widget-icons pull-right">
-                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
-                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
-                  </div>  
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget-content">
-                  <div class="padd">
-                    <div class="form profile">
-					<!-- Edit profile form (not working)-->
-					<form enctype="multipart/form-data" action="" method="POST" class="form-horizontal">
-						<!-- Country -->
-                        <div class="control-group">
-                            <label class="control-label">Rating</label>
-                            <div class="controls">                               
-                                <select id="score" name="score">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="5">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                </select>  
-								
-								
-                            </div>
-							<br >
-							<label class="control-label">Privacy</label>
-                            <div class="controls">                               
-                                <select id="privacy" name="privacy">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="1">Public</option>
-                                    <option value="0">Private</option>
-                                </select>  
-								
-								
-                            </div>
-                        </div>    
-						<!-- Description -->
-						<div class="control-group">
-							<label class="control-label" for="description">Description</label>
-							<div class="controls">
-								<textarea class="input-large" id="Description" name="description"></textarea>
-							</div>
-						</div>
-                    <!-- <input type="file" name="file" id="file"> -->
-					<br />
-					<br />
-
-					
-					
-						
-					
-						<button type="submit" name="submit" class="btn">Submit</button>
-					</form>
-					</div>
-                    <div class="clearfix"></div>
-                          
-
-                    <hr />
-
-                                                               
-
-                    
-                  </div>
-                  <div class="widget-foot">
-                    <!-- Footer goes here -->
-                  </div>
-                </div>
-              </div>  
+		//	,IN postTags VARCHAR(200)	// Not yet
 
 
 
-        </div>
-		  </div>
+		/*
+		$uploaddir = './';//<----This is all I changed
+		$uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
-		<!-- Matter ends -->
-
-    </div>
-
-   <!-- Mainbar ends -->	    	
-   <div class="clearfix"></div>
-
-</div>
-<!-- Content ends -->
+		echo '<pre>';
+		if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+		echo "File is valid, and was successfully uploaded.\n";
+		} else {
+		echo "Possible file upload attack!\n";
+		}
 
 
-<?php
-require("footer.php");
+		print "</pre>";
+
+		*/
 
 
 ?>
