@@ -6,6 +6,10 @@
 		
 		$replytext = isset($_REQUEST['replytext'])? $_REQUEST['replytext'] : "null";
 	
+	
+
+	
+	
 		$score = isset($_REQUEST['score'])? $_REQUEST['score'] : "null";
 		$privacy = isset($_REQUEST['privacy'])? $_REQUEST['privacy'] : "null";
 		
@@ -31,6 +35,26 @@
 		while ($item = mysqli_fetch_object($result)) {
 			$postID = $item->geode_id;
 		}
+		
+		$words = explode(" ",$replytext);
+		foreach ($words as $word){
+			if(isset($word[0])){
+				if($word[0] == "#"){
+					$word = substr($word, 1);
+					
+					$query = "call insertTag(\"".$word."\",".$postID.")";
+					$result = $link->query($query);
+					if (!$result) {
+						echo 'Could not run query: ' . mysqli_error($link);
+						
+					}
+		
+					echo $query;
+				}
+			}
+		}
+		
+		
 	
 		
 		$query = 'SELECT `username`, `profile_pic` FROM  `users` WHERE  `user_id` ='.$userID;

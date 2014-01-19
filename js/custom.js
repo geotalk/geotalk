@@ -96,7 +96,7 @@ $('.wclose').click(function(e){
     var m = date.getMonth();
     var y = date.getFullYear();
     
-    $('#calendar').fullCalendar({
+  /*  $('#calendar').fullCalendar({
       header: {
         left: 'prev',
         center: 'title',
@@ -150,7 +150,7 @@ $('.wclose').click(function(e){
         }
       ]
     });
-    
+    */
   });
 
 /* Progressbar animation */
@@ -300,7 +300,7 @@ $(document).ready(function() {
 
 
 /* Date picker */
-
+/*
   $(function() {
     $('#datetimepicker1').datetimepicker({
       pickTime: false
@@ -312,7 +312,7 @@ $(document).ready(function() {
       pickDate: false
     });
   });
-
+*/
 
 /* Bootstrap toggle */
 
