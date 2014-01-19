@@ -1652,6 +1652,10 @@ body.profile .reply{
 	display:none;
 }
 
+body.index #form{
+	display:none;
+}
+
 
 /*.user .user .user .user .user{
 	padding-left:0;

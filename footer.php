@@ -39,6 +39,7 @@
 <script src="js/jquery.flot.stack.js"></script>
 
 
+<script src="js/jquery.knob.js"></script>
 
 <!-- <script src="js/sparklines.js"></script> <!-- Sparklines --> 
 <script src="js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
@@ -48,9 +49,17 @@
 <!-- <script src="js/filter.js"></script> <!-- Filter for support page -->
 <script src="js/custom.js"></script> <!-- Custom codes -->
 <!-- <script src="js/charts.js"></script> <!-- Charts & Graphs -->
+
+<script type="text/javascript" src="./lib/jquery.ibutton.js"></script>
+  <script type="text/javascript" src="./lib/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="./lib/jquery.metadata.js"></script>
+
+
+  
 <script>
 jQuery(document).ready(function() {
   jQuery("abbr.timeago").timeago();
+  jQuery(".dial").knob();
 });
 </script>
 </body>

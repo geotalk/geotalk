@@ -86,7 +86,9 @@ define("appID", '1399808763601662');
 			
 		rtrim($output, ",");
 	
-		echo "[".substr($output, 0, -1). "]";
+		echo "[" .$output. "]";
+		
+		
 	}
 
 
@@ -167,7 +169,6 @@ define("appID", '1399808763601662');
 					}
 			
 			}
-		
 			
 		echo '</div>';
 	}

@@ -39,25 +39,15 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
                         <div class="control-group">
                             <label class="control-label">Rating</label>
                             <div class="controls">                               
-                                <select id="score" name="score">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="5">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                </select>  
-                
+                               
+								<input type="text" name="score" class="dial" data-min="0" data-max="5" data-angleArc="250" data-angleOffset=-125>
                 
                             </div>
               <br >
-              <label class="control-label">Privacy</label>
-                            <div class="controls">                               
-                                <select id="privacy" name="privacy">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="1">Public</option>
-                                    <option value="0">Private</option>
-                                </select>  
+              <label class="control-label">Private</label>
+                            <div class="controls">   
+
+<input type="checkbox" name="privacy" value="0">
                 
                 
                             </div>

@@ -46,6 +46,11 @@ require("functions.php");
   <link href="style/style.css" rel="stylesheet">
   <!-- Widgets stylesheet -->
   <link href="style/widgets.css" rel="stylesheet">   
+  
+  <link type="text/css" href="./css/jquery.ibutton.css" rel="stylesheet" media="all" />
+
+  
+  
   <!-- Responsive style (from Bootstrap) -->
   <link href="style/bootstrap-responsive.css" rel="stylesheet">
   
@@ -105,8 +110,9 @@ require("functions.php");
           </ul>
 
           <div class="pull-left">
-            <div style="background-image:URL(logo.png); background-size:contain; background-repeat:no-repeat; background-position:left center; height:50px; width:40px"></div>
-          </div>
+            <div style="float:left; background-image:URL(logo.png); background-size:contain; background-repeat:no-repeat; background-position:left center; height:50px; width:40px"></div>
+          <h1 style="height:50px;  padding:0; line-height:50px; padding-left:10px; float:left;">Geotalk</h1>
+		  </div>
 
           <div class="clearfix"></div>
         </div>
