@@ -3,6 +3,7 @@
 
 require("header.php");
 
+
 ?>
 
     <style>
@@ -27,19 +28,11 @@ require("header.php");
 
     <script>
       var fill = d3.scale.category20();
-
+      var wordcloudData = <?php echo wordclouddata() ?>;
+      console.log(wordcloudData);
+      
       d3.layout.cloud().size([300, 400])
-          .words([
-            "Hello", "world", "normally", "you", "want", "more", "words",
-            "want", "more", 
-            "want", "more", 
-            "want", "more", 
-            "want", "more", 
-            "want", "more", 
-            "want", "more", 
-            "want", "more", 
-            "want", "more", 
-            "than", "this"].map(function(d) {
+          .words(wordcloudData.map(function(d) {
             return {text: d, size: 10 + Math.random() * 90};
           }))
           .padding(5)

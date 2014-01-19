@@ -62,6 +62,33 @@ define("appID", '1399808763601662');
 	
 		echo "[".substr($output, 0, -1). "]";
 	}
+	function wordclouddata(){
+	
+	global $link;
+		// $query = "CALL selectGeodesClose(".$_SESSION['lat'].",".$_SESSION['lng'].",". 0.05 .")";
+		$sql = "CALL selectHashtagsMap(1000,".$_SESSION['lat'].",".$_SESSION['lng'].");";
+
+		$result = $link->query($sql);
+
+		if (!$result) {
+			echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+			exit;
+		}
+
+		
+		$output="";
+		while ($item = mysqli_fetch_object($result)) {
+			$output .= "'".$item->tag."',";
+		}
+		
+		mysqli_free_result($result);
+			
+		rtrim($output, ",");
+	
+		echo "[".substr($output, 0, -1). "]";
+	}
+
+
 	
 	// Functions 
 	
