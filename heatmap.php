@@ -50,8 +50,9 @@ require("header.php");
 
       function updateMap () {
         console.log("update", counter++);
+		
         var latestData = <?php echo heatmapdata() ?>;
-        
+        console.log(latestData);
         heatmap.setData(latestData);
         // for (var i = 0, len = latestData.length; i < len; i++) {
         //   console.log("updateMap", latestData[i])
@@ -60,7 +61,7 @@ require("header.php");
 
       }
 
-      var timeInterval = setInterval(function(){updateMap()}, 15000);
+      var timeInterval = setInterval(function(){updateMap()}, 5000);
 
     </script>
 

@@ -1642,6 +1642,13 @@ footer .copy{
 	max-width:100%;
 }
 
+.dropdown-menu{
+left:auto;
+	right:4px;
+	min-width:60px;
+}
+
+
 /*.user .user .user .user .user{
 	padding-left:0;
 	background-color:rgb(224,224,224);

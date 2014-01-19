@@ -95,7 +95,7 @@ require("functions.php");
           </ul>
 
           <div class="pull-left">
-            <p> Logo </p>
+            <div style="background-image:URL(logo.png); background-size:contain; background-repeat:no-repeat; background-position:left center; height:50px; width:40px"></div>
           </div>
 
           <div class="clearfix"></div>
