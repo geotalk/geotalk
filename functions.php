@@ -71,10 +71,12 @@ define("appID", '1399808763601662');
 		}
 		return $return;
 	}
-
-
+	
+	
+	// default comments on
 	function outputGeode($geode){
-	global $link;
+	 
+		global $link;
 	?>
 	
 			
@@ -100,80 +102,13 @@ define("appID", '1399808763601662');
 				<?php } ?>
 			</div>
 			
-			<form class="reply" action="ajaxadd.php">
-				<input type="hidden" name = "parent" value = "<?php echo $geode->CloseLocationID ?>" >
-				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
-				<button type="submit" class="btn btn-default">Reply</button>
-			</form>
-
-			<div class="clearfix"></div>
-				
-				
-				<?php 
-				
-			$childlink = mysqli_connect(mysql_host, mysql_user, mysql_pass, mysql_tabl);
-			
-			if (!$childlink) {
-				die('Not connected : ' . mysqli_error($childlink));
-			}
-
-			$query2 = "CALL selectChildren(".$geode->CloseLocationID.");";
-			$result2 = $childlink->query($query2);
-			
-			if (!$result2) {
-						echo 'Could not run query: ' . mysqli_error($childlink);
-						
-			}
-			else{
-
-					
-					while ($children[] = $result2->fetch_object());
-					array_pop($children);
-				
-					foreach($children as $child) {
-						outputGeode($child);
-					}
-			
-			}
-		
-			
-		echo '</div>';
-	}
-	
-
-	
-	function outputGeode($geode){
-	global $link;
-	?>
-	
-			
-			<div id="geode-<?php echo $geode->CloseLocationID ?>" geode="<?php echo $geode->CloseLocationID ?>" class="user">
-				
-				
-				<div style="float:right; margin:1%;">
-					<abbr class="timeago" title="<?php echo date ( 'c', strtotime($geode->post_time )) ?>"> <?php echo strtotime($geode->post_time ); ?></abbr>
-				</div>
-				<div class="user-pic">
-					<a href="#">
-						<img src=" <?php echo $geode->profile_pic ?>" alt="" />
-					</a>
-					<h5><?php echo $geode->username ?></h5>
-				</div>
-
-			<div class="user-details">
-				<p style="padding:1%;"><?php echo $geode->post_text ?></p>
-				
-				<?php if (isset($geode->url)){ ?>
-					<img class="submitted-pic" src="<?php echo $geode->url ?>">
-					<br />
-				<?php } ?>
-			</div>
 			
 			<form class="reply" action="ajaxadd.php">
 				<input type="hidden" name = "parent" value = "<?php echo $geode->CloseLocationID ?>" >
 				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
 				<button type="submit" class="btn btn-default">Reply</button>
 			</form>
+			
 
 			<div class="clearfix"></div>
 				
