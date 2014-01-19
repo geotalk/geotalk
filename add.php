@@ -92,7 +92,7 @@ print "</pre>";
                     <div class="form profile">
 					<!-- Edit profile form (not working)-->
 					<form enctype="multipart/form-data" action="" method="POST" class="form-horizontal">
-						<!-- Country -->
+						<!-- rate -->
                         <div class="control-group">
                             <label class="control-group">Rating</label>
                             <div class="control-group">                               
@@ -107,21 +107,6 @@ print "</pre>";
 								
 								
                             </div>
-							<br >
-							<label class="control-group">Privacy</label>
-                            <div class="control-group">                               
-                                <select id="control-group" name="privacy">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="1">Public</option>
-                                    <option value="0">Private</option>
-                                </select>  
-								
-								
-                            </div>
-							<label class="control-group">Picture Upload</label>
-							<div class="control-group">                               
-                           		<input type="file" value="U">								
-                            </div>
 						<!-- Description -->
 						<div class="control-group">
 							<label class="control-group" for="description">Description</label>
@@ -129,15 +114,23 @@ print "</pre>";
 								<textarea class="input-large" id="Description" name="description"></textarea>
 							</div>
 						</div>
+						<!-- Privacy -->
+						<div class="control-group">
+							<label class="control-group">Privacy</label>
+                            <div class="control-group">                               
+                                <select id="control-group" name="privacy">
+                                    <option value=""> --- Please Select --- </option>
+                                    <option value="1">Public</option>
+                                    <option value="0">Private</option>
+                                </select> 	
+                            </div>
+						</div>
+							<label class="control-group">Picture Upload</label>
+							<div class="control-group">                               
+                           		<input type="file" value="U">								
+                            </div>
+
 					</div>    
-
-                    <!-- <input type="file" name="file" id="file"> -->
-					<br />
-					<br />
-
-					
-					
-						
 					
 						<button type="submit" name="submit" class="btn">Submit</button>
 					</form>
