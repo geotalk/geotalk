@@ -2,18 +2,7 @@
 
 	require("functions.php");
 
-
-		if ($fbID = getFacebookID()){
-			$query = "SELECT `user_id` FROM  `users` WHERE  `user_facebook` = ".getFacebookID().";";
-
-			$result = $link->query($query);
-
-			while ($item = mysqli_fetch_object($result)) {
-				$FBuserID = $item->user_id;
-			}	
-		}
-
-		$userID = isset($FBuserID)? $FBuserID : 1;
+		$userID = getUserID();
 		
 		$replytext = isset($_REQUEST['replytext'])? $_REQUEST['replytext'] : "null";
 	
@@ -24,17 +13,51 @@
 
 		$query = 'CALL insertGeode('.$userID.','.$_SESSION['lat'].','.$_SESSION['lng'].','.$replyto.',"'. date( 'Y-m-d H:i:s').'","'.$replytext.'",'.$score.','. '"img"' . ','.'"word"'.','.$privacy.')';
 
-		var_dump($query);
-
 		$result = $link->query($query);//mysql_query($query);
 
 		if (!$result) {
 			echo 'Could not run query: ' . mysql_error();
-		exit;
+			exit;
+		}
+		
+		
+		$postID = $link->insert_id; //**BUG Need to get the proper ID for nested replies
+		
+		$query = 'SELECT `username`, `profile_pic` FROM  `users` WHERE  `user_id` ='.$userID;
+		$result = $link->query($query);
+		
+		while ($item = mysqli_fetch_object($result)) {
+			$username = $item->username;
+			$profile_pic = $item->profile_pic;
 		}
 
-		echo "Successfuly Submitted";
+		?>
+		<div class="user">
+			<div style="float:right; margin:1%;">
+					<abbr class="timeago" title="<?php echo date ( 'c') ?>"> <?php echo time(); ?></abbr>
+				</div>
+			<div class="user-pic">
+				<a href="#">
+					<img src="<?php echo $profile_pic ?>" alt="" />
+				</a>
+				<h5>
+					<?php echo $username?>
+				</h5>
+			</div>
+			<div class="user-details">
+				<p style="padding:1%;">
+					<?php echo $replytext ?>
+				</p>
+			</div>
+			<form class="reply" action="ajaxadd.php">
+				<input type="hidden" name = "parent" value = "<?php $postID ?>" >
+				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
+				<button type="submit" class="btn btn-default">Reply</button>
+			</form>
 
+			<div class="clearfix"></div>
+		</div>
+<?php
 
 
 		//	,IN postTags VARCHAR(200)	// Not yet

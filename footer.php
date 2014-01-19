@@ -22,6 +22,8 @@
 <!-- JS -->
 <script src="js/jquery.js"></script> <!-- jQuery -->
 
+<script src="js/reply.js"></script> 
+
 <script src="js/jquery.timeago.js"></script> <!-- jQuery -->
 
 
