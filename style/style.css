@@ -73,6 +73,7 @@ a:hover,a:active,a:focus {
 
 form.reply textarea{
 opacity:0.5;
+max-width:100%
 }
 
 form.reply textarea + button{
@@ -1635,6 +1636,10 @@ footer .copy{
 	padding-left:2%;
 	border-left: 1px solid #ccc;
 	background-color:rgba(128, 128, 128, 0.05);
+}
+
+.form-search input, .form-inline input, .form-horizontal input, .form-search textarea, .form-inline textarea, .form-horizontal textarea, .form-search select, .form-inline select, .form-horizontal select, .form-search .help-inline, .form-inline .help-inline, .form-horizontal .help-inline, .form-search .uneditable-input, .form-inline .uneditable-input, .form-horizontal .uneditable-input, .form-search .input-prepend, .form-inline .input-prepend, .form-horizontal .input-prepend, .form-search .input-append, .form-inline .input-append, .form-horizontal .input-append {
+	max-width:100%;
 }
 
 /*.user .user .user .user .user{
