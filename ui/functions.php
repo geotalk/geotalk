@@ -64,8 +64,7 @@ define("appID", '1399808763601662');
 		//var_dump($geode);
 		
 		echo '
-		
-	
+			
 			<div id="geode-'.$geode->CloseLocationID.'" class="user">
 				
 				

@@ -17,7 +17,29 @@ require("header.php");
 
             <div class="row-fluid">
 
-              <!-- User widget -->
+			<!-- Top Button widget -->
+			<div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Create New Geode</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+				  
+					<a class="btn" href="add.php">Create</a>
+					
+                  </div>
+				  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+				</div>
+			</div>
+			</div>
+			<!-- End Top Button widget -->
               <div class="widget">
                 <div class="widget-head">
                   <div class="pull-left">Geodes</div>
