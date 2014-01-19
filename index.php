@@ -19,6 +19,7 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
 
             <div class="row-fluid">
 
+
           			<!-- Top Button widget -->
           			<div class="widget">
                     <div class="widget-head">
@@ -34,44 +35,49 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
           				        <div class="form profile">
                     					<!-- Edit profile form (not working)-->
                     					<form enctype="multipart/form-data" action="ajaxadd.php" method="POST" class="form-horizontal new-geode">
-                    						<!-- rate -->
-                                  <div class="control-group">
-                                        <label class="control-group">Rating</label>
-                                        <div class="control-group">                               
-                                            <select id="score" name="score">
-                                                <option value=""> --- Please Select --- </option>
-                                                <option value="5">5</option>
-                                                <option value="4">4</option>
-                                                <option value="3">3</option>
-                                                <option value="2">2</option>
-                                                <option value="1">1</option>
-                                            </select>  
-            								
-            								
-                                        </div>
-                          						<!-- Description -->
-                          						<div class="control-group">
-                          							<label class="control-group" for="description">Description</label>
-                          							<div class="control-group">
-                          								<textarea class="input-large" id="Description" name="description"></textarea>
-                          							</div>
-                          						</div>
+                    						<!-- Country -->
+                        <div class="control-group">
+                            <label class="control-label">Rating</label>
+                            <div class="controls">                               
+                                <select id="score" name="score">
+                                    <option value=""> --- Please Select --- </option>
+                                    <option value="5">5</option>
+                                    <option value="4">4</option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>  
+                
+                
+                            </div>
+              <br >
+              <label class="control-label">Privacy</label>
+                            <div class="controls">                               
+                                <select id="privacy" name="privacy">
+                                    <option value=""> --- Please Select --- </option>
+                                    <option value="1">Public</option>
+                                    <option value="0">Private</option>
+                                </select>  
+                
+                
+                            </div>
+                        </div>    
+            <!-- Description -->
+            <div class="control-group">
+              <label class="control-label" for="description">Description</label>
+              <div class="controls">
+                <textarea class="input-large" id="Description" name="description"></textarea>
+              </div>
+            </div>
+                    <!-- <input type="file" name="file" id="file"> -->
+          <br />
+          <br />
 
-                    					<br />
-
-                      						<!-- Privacy -->
-                      						<div class="control-group">
-                      							<label class="control-group">Privacy</label>
-                                          <div class="control-group">                               
-                                              <select id="control-group" name="privacy">
-                                                  <option value=""> --- Please Select --- </option>
-                                                  <option value="1">Public</option>
-                                                  <option value="0">Private</option>
-                                              </select> 	
-                                          </div>
-                      						</div>
-                                  <button type="submit" name="submit" class="btn">Submit</button>
-                    					</div>    
+          
+          
+            
+          
+            <button type="submit" name="submit" class="btn">Submit</button>
                     					
                     						
                     					</form>
