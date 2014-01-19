@@ -21,7 +21,7 @@ require("header.php");
 
             <div class="row-fluid">
 
-            <div class="span5">
+            <div >
 
               <!-- User widget -->
               <div class="widget">
@@ -34,13 +34,13 @@ require("header.php");
                   <div class="clearfix"></div>
                 </div>
                 <div class="widget-content">
-                  <div class="padd">
-                    <div class="user-pic">
+                  <div class="padd row-fluid">
+                      <div class="user-pic pull-left span6">
                         <!-- User pic -->
                         <a href="#"><img src="img/user-big.jpg" alt="" /></a>
                       </div>
 
-                      <div class="user-details">
+                      <div class="user-details pull-right span6">
                       <a href="profile_edit.html" class="btn btn-info btn-mini"><i class="icon-user"></i> Edit Profile</a> 
                         <h2>Name: Ashok Singh</h2>
                         <h5>Default Privacy: Semi-Public </h5>
@@ -51,13 +51,8 @@ require("header.php");
 
                     <hr />
 
-                                                               
-
-                    
                   </div>
-                  <div class="widget-foot">
-                    <!-- Footer goes here -->
-                  </div>
+                  
                 </div>
               </div>  
 
