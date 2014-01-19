@@ -17,7 +17,8 @@ define("appID", '1399808763601662');
 	
 	
 	function getFacebookID(){
-		return $_SESSION["fb_".appID."_user_id"];
+		 if (isset($_SESSION["fb_".appID."_user_id"])) return $_SESSION["fb_".appID."_user_id"];
+		 else return "";
 	}
 	
 	function heatmapdata(){
