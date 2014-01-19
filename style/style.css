@@ -1648,6 +1648,10 @@ left:auto;
 	min-width:60px;
 }
 
+body.profile .reply{
+	display:none;
+}
+
 
 /*.user .user .user .user .user{
 	padding-left:0;
