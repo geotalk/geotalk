@@ -110,6 +110,7 @@ define("appID", '1399808763601662');
 					
 					while ($children[] = $result2->fetch_object());
 					array_pop($children);
+					$children = array_reverse($children);
 						foreach($children as $child) {
 							outputGeode($child);
 						}

@@ -53,6 +53,9 @@ require("header.php");
 					
 					while ($geodes[] = $result->fetch_object());
 					array_pop($geodes);
+					
+					$geodes = array_reverse ($geodes);
+					
 						foreach($geodes as $geode) :
 						outputGeode($geode);
 						endforeach;
