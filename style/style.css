@@ -8,11 +8,13 @@ body{
 }
 
 
-.index li a.btn[href="index.php"]{
+
+body.index li a.btn[href="index.php"]{
+
 	display: none;
 }
 
-.heatmap li a.btn[href="heatmap.php"]{
+body.heatmap li a.btn[href="heatmap.php"]{
 	display: none;
 }
 

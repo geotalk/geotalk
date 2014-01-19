@@ -88,9 +88,6 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
 					
 
                   </div>
-                  <div class="widget-foot">
-                    <!-- Footer goes here -->
-                  </div>
                 </div>
               </div>  
 
