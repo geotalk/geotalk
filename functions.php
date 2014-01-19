@@ -113,7 +113,8 @@ define("appID", '1399808763601662');
 				
 				<?php 
 				
-			$childlink = mysqli_connect('localhost', 'root', 'root', 'hack');
+			$childlink = mysqli_connect(mysql_host, mysql_user, mysql_pass, mysql_tabl);
+			
 			if (!$childlink) {
 				die('Not connected : ' . mysqli_error($childlink));
 			}

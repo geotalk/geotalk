@@ -24,7 +24,7 @@
 		}
 		
 		
-		$query = 'SELECT `geode_id` FROM `geode` WHERE `post_time` = "'.$date.'" AND `post_text` = "'.$replytext.'";';
+		$query = 'SELECT last_insert_id() AS `geode_id` FROM `geode`'; //SELECT `geode_id` FROM `geode` WHERE `post_time` = "'.$date.'" AND `post_text` = "'.$replytext.'";';
 		
 		$result = $link->query($query);
 		
