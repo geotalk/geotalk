@@ -80,7 +80,7 @@ define("appID", '1399808763601662');
 				</div>
 
 			<div class="user-details">
-				<p>'.$geode->post_text.'</p>';
+				<p style="padding:1%;">'.$geode->post_text.'</p>';
 				
 			if (isset($geode->url)) echo '<img class="submitted-pic" src="'.$geode->url.'"><br />';
 				
