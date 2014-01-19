@@ -69,7 +69,7 @@ define("appID", '1399808763601662');
 			<div id="geode-'.$geode->CloseLocationID.'" class="user">
 				
 				
-				<div style="float:right; margin="100%;">
+				<div style="float:right; margin:1%;">
 					<abbr class="timeago" title="'. date ( 'c', strtotime($geode->post_time )).'">'.strtotime($geode->post_time ).'</abbr>
 				</div>
 				<div class="user-pic">
@@ -86,7 +86,7 @@ define("appID", '1399808763601662');
 				
 			echo '';
 			
-			echo '<a class="btn" style="margin=1%;" href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a>
+			echo '<a class="btn" style="margin:1%;" href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a>
 			</div>
 
 			<div class="clearfix"></div>';
