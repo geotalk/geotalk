@@ -24,8 +24,8 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
           			<div class="widget">
                     <div class="widget-head" >
                         <div class="pull-left">Create New Geode</div>
-                          <div class="widget-icons pull-right" data-toggle='collapse'>
-                              <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                          <div class="widget-icons pull-right">
+                              <a href="#" class="wminimize" data-toggle='collapse'><i class="icon-chevron-up"></i></a> 
                               <a href="#" class="wclose"><i class="icon-remove"></i></a>
                           </div>  
                           <div class="clearfix"></div>
