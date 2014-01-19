@@ -86,8 +86,7 @@ define("appID", '1399808763601662');
 				
 			echo ;
 			
-			echo '';
-				'<a class="btn" style="margin=2px; " href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a>
+			echo '<a class="btn" style="margin=2px; " href="add.php?replyto='.$geode->CloseLocationID.'">Reply</a>
 			</div>
 
 			<div class="clearfix"></div>';
