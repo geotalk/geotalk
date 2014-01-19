@@ -94,8 +94,8 @@ print "</pre>";
 					<form enctype="multipart/form-data" action="" method="POST" class="form-horizontal">
 						<!-- Country -->
                         <div class="control-group">
-                            <label class="control-label">Rating</label>
-                            <div class="controls">                               
+                            <label class="control-group">Rating</label>
+                            <div class="control-group">                               
                                 <select id="score" name="score">
                                     <option value=""> --- Please Select --- </option>
                                     <option value="5">5</option>
@@ -108,9 +108,9 @@ print "</pre>";
 								
                             </div>
 							<br >
-							<label class="control-label">Privacy</label>
-                            <div class="controls">                               
-                                <select id="privacy" name="privacy">
+							<label class="control-group">Privacy</label>
+                            <div class="control-group">                               
+                                <select id="control-group" name="privacy">
                                     <option value=""> --- Please Select --- </option>
                                     <option value="1">Public</option>
                                     <option value="0">Private</option>
@@ -118,14 +118,19 @@ print "</pre>";
 								
 								
                             </div>
-                        </div>    
+							<label class="control-group">Picture Upload</label>
+							<div class="control-group">                               
+                           		<input type="file" value="U">								
+                            </div>
 						<!-- Description -->
 						<div class="control-group">
-							<label class="control-label" for="description">Description</label>
-							<div class="controls">
+							<label class="control-group" for="description">Description</label>
+							<div class="control-group">
 								<textarea class="input-large" id="Description" name="description"></textarea>
 							</div>
 						</div>
+					</div>    
+
                     <!-- <input type="file" name="file" id="file"> -->
 					<br />
 					<br />
