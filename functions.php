@@ -115,14 +115,14 @@ define("appID", '1399808763601662');
 				
 			$childlink = mysqli_connect('localhost', 'root', 'root', 'hack');
 			if (!$childlink) {
-				die('Not connected : ' . mysql_error());
+				die('Not connected : ' . mysqli_error($childlink));
 			}
 
 			$query2 = "CALL selectChildren(".$geode->CloseLocationID.");";
 			$result2 = $childlink->query($query2);
 			
 			if (!$result2) {
-						echo 'Could not run query: ' . mysql_error();
+						echo 'Could not run query: ' . mysqli_error($childlink);
 						
 			}
 			else{
