@@ -48,6 +48,7 @@ session_start()
   <!-- Responsive style (from Bootstrap) -->
   <link href="style/bootstrap-responsive.css" rel="stylesheet">
   
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <!-- HTML5 Support for IE -->
   <!--[if lt IE 9]>
   <script src="js/html5shim.js"></script>
@@ -79,8 +80,13 @@ session_start()
 
             <!-- Message button with number of latest messages count-->
             <li>
+              <a class="btn" href="home.php">
+                <i class="fa fa-home"> </i> <span> Home  </span>
+              </a>
+            </li>
+            <li>
               <a class="btn" href="heatmap.php">
-                <i class="glyphicon glyphicon-map-marker"></i> Heatmap  
+                <i class="fa fa-map-marker"></i> <span> Heatmap </span>   
               </a>
             </li>
 
