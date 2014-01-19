@@ -58,7 +58,7 @@ session_start()
   <link rel="shortcut icon" href="img/favicon/favicon.png">
 </head>
 
-<body>
+<body class="<?php echo preg_replace("/[^a-z]+/i", "", pathinfo ($_SERVER["SCRIPT_NAME"], PATHINFO_FILENAME)) ?>">
 
 
 <!-- Header starts -->
