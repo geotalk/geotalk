@@ -37,13 +37,13 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
                     					<form enctype="multipart/form-data" action="ajaxadd.php" method="POST" class="form-horizontal new-geode">
                     						<!-- Country -->
                         <div class="control-group">
-                            <label class="control-label">Rating</label>
+                            <label class="control-label">Rate this spot!</label>
                             <div class="controls">                               
                                
-								<input type="text" name="score" class="dial" data-min="0" data-max="5" data-angleArc="250" data-angleOffset=-125>
+								<input type="text" name="score" class="dial" data-width="150" data-min="0" data-max="5" data-angleArc="250" data-angleOffset=-125>
                 
                             </div>
-              <br >
+              
               <label class="control-label">Private</label>
                             <div class="controls">   
 
@@ -54,7 +54,7 @@ if( isset ( $_REQUEST['lat'] ) && isset ($_REQUEST['lng'] ) ){
                         </div>    
             <!-- Description -->
             <div class="control-group">
-              <label class="control-label" for="description">Description</label>
+              <label class="control-label" for="description">Content</label>
               <div class="controls">
                 <textarea class="input-large" id="Description" name="description"></textarea>
               </div>

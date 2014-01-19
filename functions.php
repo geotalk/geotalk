@@ -1,6 +1,9 @@
 <?php
 
 // Defines
+
+date_default_timezone_set('America/Halifax');
+
 require_once("connect.php");
 session_start();
 
@@ -114,7 +117,7 @@ define("appID", '1399808763601662');
 				
 				
 				<div style="float:right; margin:1%;">
-					<abbr class="timeago" title="<?php echo date ( 'c', strtotime($geode->post_time )) ?>"> <?php echo strtotime($geode->post_time ); ?></abbr>
+					<abbr class="timeago" title="<?php echo date ( 'c', strtotime($geode->post_time )) ?>"> <?php echo date("F j, Y, g:i a", strtotime($geode->post_time )); ?></abbr>
 				</div>
 				<div class="user-pic">
 					<a href="#">
@@ -124,9 +127,9 @@ define("appID", '1399808763601662');
 				</div>
 
 			<div class="user-details">
-				<p style="padding:1%;"><?php echo $geode->post_text ?></p>
+				<p style="padding:1%;"><?php echo nl2br($geode->post_text) ?></p>
 				
-				<?php if (isset($geode->url)){ ?>
+				<?php if (isset($geode->url) && 1 == 2){ ?>
 					<img class="submitted-pic" src="<?php echo $geode->url ?>">
 					<br />
 				<?php } ?>
@@ -135,7 +138,7 @@ define("appID", '1399808763601662');
 			
 			<form class="reply" action="ajaxadd.php">
 				<input type="hidden" name = "parent" value = "<?php echo $geode->CloseLocationID ?>" >
-				<textarea class="form-control" rows="1" name="replycontent"> </textarea>
+				<textarea class="form-control" rows="2" name="replycontent"> </textarea>
 				<button type="submit" class="btn btn-default">Reply</button>
 			</form>
 			

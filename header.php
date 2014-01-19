@@ -103,16 +103,23 @@ require("functions.php");
                     <a class="btn" href="profile.php">
                       <i class="fa fa-user"> </i> <span> Me  </span>
                     </a>
-                  </li>                                  
+                  </li>  
+ <li>
+                    <a class="btn" href="login.php">
+                      <i class="fa fa-lock"> </i> <span> Login </span>
+                    </a>
+                  </li>     				  
                 </ul>
             </li>
 
           </ul>
 
           <div class="pull-left">
+		  <a href="/">
             <div style="float:left; background-image:URL(logo.png); background-size:contain; background-repeat:no-repeat; background-position:left center; height:50px; width:40px"></div>
           <h1 style="height:50px;  padding:0; line-height:50px; padding-left:10px; float:left;">Geotalk</h1>
 		  </div>
+		  </a>
 
           <div class="clearfix"></div>
         </div>

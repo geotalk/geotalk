@@ -7,6 +7,7 @@ require("header.php");
 
 <!-- Main content starts -->
 
+<?php if(getUserID() != 1){ ?>
 <div class="content">
 
   	
@@ -51,20 +52,9 @@ require("header.php");
 
                     <hr />
 
-                  </div>
-                  
-                </div>
-              </div>  
-
-            </div>
-
-        </div>
-		  </div>
-
-		<!-- Matter ends -->
-
-				<?php
-			$query = "CALL selectGeodesClose(".$_SESSION['lat'].",".$_SESSION['lng'].",". 0.05 .")";
+					
+						<?php
+			$query = "CALL selectGeodesUser(".getUserID().")";
 			
 					
 					$result = $link->query($query);
@@ -88,6 +78,24 @@ require("header.php");
 						?>
 		
 		
+                  </div>
+                  
+                </div>
+				
+				
+              </div>  
+
+            </div>
+
+			
+        </div>
+		
+		
+		  </div>
+
+		<!-- Matter ends -->
+
+			
 		
 		
     </div>
@@ -98,7 +106,16 @@ require("header.php");
 </div>
 <!-- Content ends -->
 
+
 <?php
+}
+else{ ?>
+	Not Logged In! 
+	
+		<a href="login.php">Login</a>
+	<?php
+}
+
 require("footer.php");
 
 

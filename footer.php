@@ -60,6 +60,11 @@
 jQuery(document).ready(function() {
   jQuery("abbr.timeago").timeago();
   jQuery(".dial").knob();
+  
+  
+  jQuery(document).on("click", ".widget-head", function(){
+	jQuery(this).parent().find(".widget-content").slideDown();
+  });
 });
 </script>
 </body>
